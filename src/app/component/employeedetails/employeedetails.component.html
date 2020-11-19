@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="col-lg-12">
+    <h4 class="form__title">
+      Employee Details : {{"Total(" + employees$.length+")"}}
+    </h4>
+    <hr>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+     <div class="form-group">
+      <div class="dropdown">
+        <button class="btn btn-md btn-block btn-info">
+          {{'Filter By -'+filterByDepartments}}</button>
+        <div class="dropdown-content">
+        <p >Computers</p>
+        <p>Physics</p>
+        <p>Chemistry</p>
+        </div>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg-3">
+        <input type="text" class="form-control" [(ngModel)]="name__email" placeholder="Search By Name / Email"/>
+    </div>
+    <div class="col-lg-3">
+        <button class="btn btn-block btn-md btn-warning"
+        (click)="resertandreload()">
+        Reset and Reload Data
+        </button>
+    </div>
+    <div class="col-lg-3">
+      <div class="dropdown">
+        <button class="btn btn-md btn-block btn-success">
+          {{'Sort By - '+this.sortByFields}}
+        </button>
+        <div class="dropdown-content">
+        <p (click)="sortBy('name')">Name(z-a)</p>
+        <p (click)="sortBy('age')">Age</p>
+        <p (click)="sortBy('email')">Email</p>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="col-lg-12">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Employee Name</th>
+        <th>Age</th>
+        <th>Email Address</th>
+        <th>Departments</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let emp of employees$ | search:name__email">
+      <tr>
+        <td>{{emp.name}}</td>
+        <td>{{emp.age}}</td>
+        <td>{{emp.email}}</td>
+        <td [tooltip]="emp.departments" placement="right" [show-delay]="100">{{emp.departments.length}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

@@ -1,0 +1,37 @@
+.container{
+  margin-top: 50px;
+}
+.form-title{
+  color: #000;
+}
+hr{
+  border-bottom: 3px solid black;
+}
+table {
+  width: 100%;
+  text-align: center;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ff7846;
+  min-width: 275px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content p {
+  color: #000;
+  padding: 12px 10px;
+  display: block;
+  cursor: pointer;
+}
+.dropdown-content p:hover {
+  background-color: #000;
+  color: #fff;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.col-lg-3{
+  padding:5px;
+}
